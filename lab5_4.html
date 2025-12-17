@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Прізвище, група</title>
+</head>
+<body>
+<script>
+"use strict";
+
+
+let str = "Чого являєшся мені У сні? Чого звертаєш ти до мене Чудові очі ті ясні, Сумні, Немов криниці дно студене?";
+document.write("Вихідне речення:  ",str);
+// ВИпадкове перемішування
+function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+}
+
+function shuffleWord(word) {
+    if (word.length <= 3) return word; // короткі слова залишаємо без змін
+    // виділяємо внутрішні букви
+    let middle = word.slice(1, -1).split("");
+    shuffleArray(middle);
+    return word[0] + middle.join("") + word[word.length - 1];
+}
+
+
+let words = str.split(/(\s+)/);
+
+// перемішування
+for (let i = 0; i < words.length; i++) {
+    if (!/\s+/.test(words[i])) { // тільки слова, не пробіли
+        words[i] = shuffleWord(words[i]);
+    }
+}
+
+let shuffledStr = words.join("");
+
+document.write("<p>Рядок після перемішування букв у словах: " + shuffledStr + "</p>");
+console.log("Рядок після перемішування букв у словах:", shuffledStr);
+
+</script>
+<button onclick="location.href='index.html'">
+    Повернутися до головної сторінки
+</button>
+</body>
+</html>
