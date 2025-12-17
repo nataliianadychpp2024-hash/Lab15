@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Прізвище, група</title>
+</head>
+<body>
+<script>
+"use strict";
+
+
+let str = "ABAC*CCBAC/ABBC*CC*B/";
+document.write("Вхідний рядок:  ", str);
+
+// вставка символу ';' після кожного 'A' та 'B'
+let modifiedStr = str.replace(/([AB])/g, "$1;");
+document.write("<p>Рядок після вставки ';' після A та B: " + modifiedStr + "</p>");
+console.log("Рядок після вставки ';' після A та B:  ", modifiedStr);
+
+// підрахунок кількості символів 'C' між '*' та '/'
+let countC = 0;
+let isBetween = false;
+
+for (let i = 0; i < str.length; i++) {
+    if (str[i] === '*') {
+        isBetween = true; 
+    } else if (str[i] === '/') {
+        isBetween = false; 
+    } else if (isBetween && str[i] === 'C') {
+        countC++;
+    }
+}
+
+document.write("<p>Кількість символів 'C' між '*' та '/':  " + countC + "</p>");
+console.log("Кількість символів 'C' між '*' та '/':  ", countC);
+
+</script>
+<button onclick="location.href='index.html'">
+    Повернутися до головної сторінки
+</button>
+</body>
+</html>
