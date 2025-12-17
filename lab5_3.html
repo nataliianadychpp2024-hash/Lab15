@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Прізвище, група</title>
+</head>
+<body>
+<script>
+"use strict";
+
+
+let str = "Чого являєшся мені У сні? Чого звертаєш ти до мене Чудові очі ті ясні, Сумні, Немов криниці дно студене?";
+document.write("Вихідне речення:  ", str);
+
+function shiftLetters(s) {
+    let result = "";
+    for (let i = 0; i < s.length; i++) {
+        let c = s[i];
+        let code = s.charCodeAt(i);
+
+        // для малих літер
+        if (c >= 'а' && c <= 'я') {
+            if (c === 'я') {
+                result += 'а';
+            } else {
+                result += String.fromCharCode(code + 1);
+            }
+        }
+        // для великих літер
+        else if (c >= 'А' && c <= 'Я') {
+            if (c === 'Я') {
+                result += 'А';
+            } else {
+                result += String.fromCharCode(code + 1);
+            }
+        }
+        else {
+            result += c;
+        }
+    }
+    return result;
+}
+
+let shiftedStr = shiftLetters(str);
+
+document.write("<p>Рядок після заміни літер: " + shiftedStr + "</p>");
+console.log("Рядок після заміни літер:", shiftedStr);
+
+</script>
+<button onclick="location.href='index.html'">
+    Повернутися до головної сторінки
+</button>
+
+</body>
+</html>
