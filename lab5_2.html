@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Надич Наталія ПП-23</title>
+</head>
+<body>
+<script>
+"use strict";
+
+
+let str = "Чого являєшся мені У сні? Чого звертаєш ти до мене Чудові очі ті ясні, Сумні, Немов криниці дно студене?";
+document.write("Речення:  ", str)
+// видалення пробілів
+let words = str.split(/\s+/); 
+let firstSpace = " "; 
+let cleanedStr = words[0] + firstSpace + words.slice(1).join(""); 
+
+document.write("<p>Рядок після видалення всіх пробілів, крім між першим і другим словом: " + cleanedStr + "</p>");
+console.log("Рядок після видалення всіх пробілів, крім між першим і другим словом:", cleanedStr);
+
+// підрахунок кіль-ті слів
+let wordCount = 0;
+for (let i = 0; i < words.length; i++) {
+    let cleanWord = words[i].replace(/[.,?!;:]/g, "");
+    if (cleanWord.length < 3) {
+        wordCount++;
+    }
+}
+
+document.write("<p>Кількість слів довжиною менше 3: " + wordCount + "</p>");
+console.log("Кількість слів довжиною менше 3:", wordCount);
+
+</script>
+<button onclick="location.href='index.html'">
+    Повернутися до головної сторінки
+</button>
+
+</body>
+</html>
